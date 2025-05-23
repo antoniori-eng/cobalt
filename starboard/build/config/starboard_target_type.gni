@@ -35,6 +35,7 @@ template("starboard_platform_target") {
   target(starboard_target_type, target_name) {
     forward_variables_from(invoker, [ "extra_configs" ])
     visibility = [
+      ":*",
       ":starboard_group",
       ":starboard_group($default_toolchain)",
     ]

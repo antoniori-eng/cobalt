@@ -30,6 +30,7 @@ import("//pdf/features.gni")
 import("//ppapi/buildflags/buildflags.gni")
 import("//printing/buildflags/buildflags.gni")
 import("//remoting/remoting_enable.gni")
+import("//starboard/contrib/cast/cast.gni")
 import("//third_party/closure_compiler/compile_js.gni")
 import("//tools/ipc_fuzzer/ipc_fuzzer.gni")
 import("//ui/base/ui_features.gni")
@@ -840,6 +841,9 @@ group("gn_all") {
   }
   if (is_cobalt) {
     deps += [ "//cobalt:gn_all" ]
+  }
+  if (use_contrib_cast && build_with_separate_cobalt_toolchain) {
+    deps += [ "//starboard/contrib/cast/cast_starboard_api/samples:cast" ]
   }
 }
 
